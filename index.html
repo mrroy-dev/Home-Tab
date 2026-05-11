@@ -1,387 +1,405 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nova Dashboard</title>
-    <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
 
-    <!-- Sidebar Overlay (mobile) -->
-    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <!-- ═══ Sidebar Overlay ═══ -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <div class="app-container" id="app-container">
+  <div class="app-container" id="app-container">
 
-      <!-- ═══ SIDEBAR ═══ -->
-      <aside class="sidebar" id="sidebar" aria-label="Navigation sidebar">
-        <div class="sidebar-inner">
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside class="sidebar" id="sidebar" aria-label="Navigation sidebar">
+      <div class="sidebar-inner">
 
-          <!-- Sidebar Header -->
-          <div class="sidebar-header">
-            <div class="logo-wrap">
-              <span class="logo-icon"><i class="fas fa-compass"></i></span>
-              <span class="logo-text">Nova</span>
-            </div>
-            <button class="icon-btn" id="close-sidebar" aria-label="Close sidebar" title="Close">
-              <i class="fas fa-times"></i>
-            </button>
+        <div class="sidebar-header">
+          <div class="logo-wrap">
+            <span class="logo-icon"><i class="fas fa-compass"></i></span>
+            <span class="logo-text">Nova</span>
           </div>
-
-          <!-- Theme Switcher -->
-          <section class="sidebar-section">
-            <div class="section-label">
-              <i class="fas fa-palette"></i>
-              <span>Themes</span>
-            </div>
-
-            <div class="theme-filter-tabs">
-              <button class="tab-btn active" data-category="all">All</button>
-              <button class="tab-btn" data-category="light">Light</button>
-              <button class="tab-btn" data-category="dark">Dark</button>
-              <button class="tab-btn" data-category="colorful">Color</button>
-            </div>
-
-            <div class="theme-grid" id="theme-options-grid">
-              <!-- Light Themes -->
-              <button class="theme-swatch" data-theme="light" data-category="light" title="Light">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#f8fafc,#cbd5e1)"></span>
-                <span class="swatch-label">Light</span>
-              </button>
-              <button class="theme-swatch" data-theme="cupcake" data-category="light" title="Cupcake">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#fdf2f8,#f5d0fe)"></span>
-                <span class="swatch-label">Cupcake</span>
-              </button>
-              <button class="theme-swatch" data-theme="bumblebee" data-category="light" title="Bumblebee">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#fef9c3,#fbbf24)"></span>
-                <span class="swatch-label">Bee</span>
-              </button>
-              <button class="theme-swatch" data-theme="emerald" data-category="light" title="Emerald">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#ecfdf5,#6ee7b7)"></span>
-                <span class="swatch-label">Emerald</span>
-              </button>
-              <button class="theme-swatch" data-theme="corporate" data-category="light" title="Corporate">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#f8fafc,#93c5fd)"></span>
-                <span class="swatch-label">Corp</span>
-              </button>
-              <button class="theme-swatch" data-theme="retro" data-category="light" title="Retro">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#fef3c7,#d97706)"></span>
-                <span class="swatch-label">Retro</span>
-              </button>
-              <button class="theme-swatch" data-theme="lofi" data-category="light" title="Lofi">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#f3f4f6,#818cf8)"></span>
-                <span class="swatch-label">Lofi</span>
-              </button>
-              <button class="theme-swatch" data-theme="pastel" data-category="light" title="Pastel">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#eff6ff,#a5b4fc)"></span>
-                <span class="swatch-label">Pastel</span>
-              </button>
-              <!-- Dark Themes -->
-              <button class="theme-swatch" data-theme="dark" data-category="dark" title="Dark">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#0f172a,#475569)"></span>
-                <span class="swatch-label">Dark</span>
-              </button>
-              <button class="theme-swatch" data-theme="synthwave" data-category="dark" title="Synthwave">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#27033d,#e779c1)"></span>
-                <span class="swatch-label">Synth</span>
-              </button>
-              <button class="theme-swatch" data-theme="cyberpunk" data-category="dark" title="Cyberpunk">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#0d0221,#ffff00)"></span>
-                <span class="swatch-label">Cyber</span>
-              </button>
-              <button class="theme-swatch" data-theme="halloween" data-category="dark" title="Halloween">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#18181b,#f97316)"></span>
-                <span class="swatch-label">Hallo</span>
-              </button>
-              <button class="theme-swatch" data-theme="forest" data-category="dark" title="Forest">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#064e3b,#34d399)"></span>
-                <span class="swatch-label">Forest</span>
-              </button>
-              <button class="theme-swatch" data-theme="aqua" data-category="dark" title="Aqua">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#155e75,#06b6d4)"></span>
-                <span class="swatch-label">Aqua</span>
-              </button>
-              <button class="theme-swatch" data-theme="black" data-category="dark" title="Black">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#000,#7c3aed)"></span>
-                <span class="swatch-label">Black</span>
-              </button>
-              <button class="theme-swatch" data-theme="luxury" data-category="dark" title="Luxury">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#09090b,#e0aa3e)"></span>
-                <span class="swatch-label">Luxury</span>
-              </button>
-              <button class="theme-swatch" data-theme="dracula" data-category="dark" title="Dracula">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#282a36,#bd93f9)"></span>
-                <span class="swatch-label">Dracula</span>
-              </button>
-              <!-- Colorful Themes -->
-              <button class="theme-swatch" data-theme="valentine" data-category="colorful" title="Valentine">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#fff1f2,#e96d85)"></span>
-                <span class="swatch-label">Valentine</span>
-              </button>
-              <button class="theme-swatch" data-theme="garden" data-category="colorful" title="Garden">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#ecfdf5,#5c7f67)"></span>
-                <span class="swatch-label">Garden</span>
-              </button>
-              <button class="theme-swatch" data-theme="fantasy" data-category="colorful" title="Fantasy">
-                <span class="swatch-preview" style="background:linear-gradient(135deg,#4f2284,#e2883a)"></span>
-                <span class="swatch-label">Fantasy</span>
-              </button>
-            </div>
-          </section>
-
-          <!-- Quick Links in Sidebar -->
-          <section class="sidebar-section sidebar-links">
-            <div class="section-label">
-              <i class="fas fa-bolt"></i>
-              <span>Quick Links</span>
-              <button class="add-link-btn icon-btn" id="add-quick-link-sidebar" aria-label="Add link" title="Add link">
-                <i class="fas fa-plus"></i>
-              </button>
-            </div>
-            <div class="sidebar-links-list" id="sidebar-links-list">
-              <!-- populated by JS -->
-            </div>
-          </section>
-
-          <!-- Sidebar Footer -->
-          <div class="sidebar-footer">
-            <button class="sidebar-footer-btn" id="settings-btn">
-              <i class="fas fa-cog"></i>
-              <span>Settings</span>
-            </button>
-          </div>
-
+          <button class="icon-btn" id="close-sidebar" aria-label="Close sidebar">
+            <i class="fas fa-times"></i>
+          </button>
         </div>
-      </aside>
 
-      <!-- ═══ MAIN CONTENT ═══ -->
-      <main class="main-content" id="main-content">
-
-        <!-- Top Bar -->
-        <header class="top-bar">
-          <button class="icon-btn topbar-btn" id="sidebar-toggle" aria-label="Toggle sidebar" title="Menu">
-            <i class="fas fa-bars"></i>
-          </button>
-
-          <div class="top-center">
-            <div class="clock-block">
-              <div id="clock" class="clock">00:00</div>
-              <div id="date" class="date-text">Loading...</div>
-            </div>
-            <div class="weather-block" id="weather">
-              <i class="fas fa-cloud"></i>
-              <span id="temperature">--°</span>
-            </div>
+        <!-- Themes -->
+        <section class="sidebar-section">
+          <div class="section-label">
+            <i class="fas fa-circle-half-stroke"></i>
+            <span>Appearance</span>
           </div>
-
-          <button class="icon-btn topbar-btn" id="theme-toggle" aria-label="Cycle themes" title="Change theme">
-            <i class="fas fa-palette"></i>
-          </button>
-        </header>
-
-        <!-- Hero -->
-        <section class="hero-section">
-          <div class="hero-content">
-            <h1 id="greeting" class="greeting">Hello, Friend</h1>
-            <p id="motivation" class="motivation">What are we accomplishing today?</p>
+          <div class="theme-filter-tabs">
+            <button class="tab-btn active" data-category="all">All</button>
+            <button class="tab-btn" data-category="light">Light</button>
+            <button class="tab-btn" data-category="dark">Dark</button>
+            <button class="tab-btn" data-category="color">Color</button>
           </div>
-        </section>
-
-        <!-- Search -->
-        <section class="search-section">
-          <div class="search-card">
-            <div class="search-engine-selector">
-              <button id="search-engine-btn" class="engine-toggle" aria-label="Select engine">
-                <i id="search-engine-icon" class="fab fa-google"></i>
-                <i class="fas fa-chevron-down engine-chevron"></i>
-              </button>
-              <div id="search-engine-dropdown" class="engine-dropdown">
-                <button class="engine-option" data-engine="google">
-                  <span class="engine-icon-wrap google"><i class="fab fa-google"></i></span>
-                  <span>Google</span>
-                </button>
-                <button class="engine-option" data-engine="bing">
-                  <span class="engine-icon-wrap bing"><i class="fab fa-microsoft"></i></span>
-                  <span>Bing</span>
-                </button>
-                <button class="engine-option" data-engine="duckduckgo">
-                  <span class="engine-icon-wrap ddg"><i class="fas fa-shield-alt"></i></span>
-                  <span>DuckDuckGo</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="search-divider"></div>
-
-            <form id="search-form" class="search-form-inner">
-              <input type="text" id="search-input" class="search-input" placeholder="Search or ask AI…" autocomplete="off" aria-label="Search"/>
-              <div class="search-actions">
-                <button type="submit" class="search-action-btn" id="search-btn" title="Search">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button type="button" class="search-action-btn" id="attach-btn" title="Attach">
-                  <i class="fas fa-paperclip"></i>
-                </button>
-                <button type="button" class="search-action-btn accent-btn" id="send-btn" title="Ask AI">
-                  <i class="fas fa-paper-plane"></i>
-                </button>
-                <button type="button" class="search-action-btn" id="voice-btn" title="Voice">
-                  <i class="fas fa-microphone"></i>
-                </button>
-              </div>
-            </form>
-          </div>
-
-          <!-- Chat Container -->
-          <div id="chat-container" class="chat-container">
-            <div class="chat-welcome">
-              <div class="chat-welcome-icon">
-                <i class="fas fa-robot"></i>
-              </div>
-              <p class="chat-welcome-title">Hello! How can I help you today?</p>
-              <p class="chat-welcome-sub">Ask me anything — I'm here to assist!</p>
-            </div>
+          <div class="theme-grid" id="theme-options-grid">
+            <button class="theme-swatch" data-theme="light" data-category="light" title="Light">
+              <span class="swatch-preview" style="background:linear-gradient(135deg,#f0f0f0,#d8d8d8)"></span>
+              <span class="swatch-label">Light</span>
+            </button>
+            <button class="theme-swatch" data-theme="dark" data-category="dark" title="Dark">
+              <span class="swatch-preview" style="background:linear-gradient(135deg,#1c1c1e,#48484a)"></span>
+              <span class="swatch-label">Dark</span>
+            </button>
+            <button class="theme-swatch" data-theme="midnight" data-category="dark" title="Midnight">
+              <span class="swatch-preview" style="background:linear-gradient(135deg,#000,#1a1a2e)"></span>
+              <span class="swatch-label">Midnight</span>
+            </button>
+            <button class="theme-swatch" data-theme="purple" data-category="color" title="Purple">
+              <span class="swatch-preview" style="background:linear-gradient(135deg,#f5f0ff,#d8b4fe)"></span>
+              <span class="swatch-label">Violet</span>
+            </button>
+            <button class="theme-swatch" data-theme="rose" data-category="color" title="Rose">
+              <span class="swatch-preview" style="background:linear-gradient(135deg,#fff1f2,#fda4af)"></span>
+              <span class="swatch-label">Rose</span>
+            </button>
+            <button class="theme-swatch" data-theme="green" data-category="color" title="Green">
+              <span class="swatch-preview" style="background:linear-gradient(135deg,#f0fdf4,#86efac)"></span>
+              <span class="swatch-label">Mint</span>
+            </button>
           </div>
         </section>
 
-        <!-- Quick Access Grid -->
-        <section class="quick-access-section">
-          <div class="section-heading">
-            <h2 class="section-title">Quick Access</h2>
-            <button class="add-link-chip" id="add-quick-link-main" aria-label="Add link">
+        <!-- Quick Links -->
+        <section class="sidebar-section sidebar-links">
+          <div class="section-label">
+            <i class="fas fa-bolt"></i>
+            <span>Quick Links</span>
+            <button class="add-link-btn icon-btn" id="add-quick-link-sidebar" aria-label="Add link">
               <i class="fas fa-plus"></i>
-              <span>Add</span>
             </button>
           </div>
-          <div id="quick-links-grid" class="links-grid">
-            <!-- populated by JS -->
-          </div>
+          <div class="sidebar-links-list" id="sidebar-links-list"></div>
         </section>
 
-      </main>
-    </div><!-- /app-container -->
-
-    <!-- ═══ ADD LINK MODAL ═══ -->
-    <div id="add-link-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
-      <div class="modal-box">
-        <div class="modal-head">
-          <h2 id="modal-title" class="modal-title">Add Quick Link</h2>
-          <button class="icon-btn modal-close" id="close-link-modal" aria-label="Close">
-            <i class="fas fa-times"></i>
+        <div class="sidebar-footer">
+          <button class="sidebar-footer-btn" id="settings-btn">
+            <i class="fas fa-gear"></i>
+            <span>Settings</span>
           </button>
         </div>
-        <form id="add-link-form" class="modal-body">
-          <div class="field-group">
-            <label for="link-name">Name</label>
-            <input type="text" id="link-name" class="field-input" placeholder="e.g. GitHub" required />
-          </div>
-          <div class="field-group">
-            <label for="link-url">URL</label>
-            <input type="url" id="link-url" class="field-input" placeholder="https://example.com" required />
-          </div>
-          <div class="field-group">
-            <label for="icon-select">Icon</label>
-            <div class="icon-select-row">
-              <div id="icon-preview" class="icon-preview-box">
-                <i class="fas fa-link"></i>
-              </div>
-              <select id="icon-select" class="field-input icon-select">
-                <option value="fas fa-link">General Link</option>
-                <option value="fas fa-globe">Website</option>
-                <option value="fas fa-star">Favorite</option>
-                <option value="fas fa-folder">Folder</option>
-                <option value="fab fa-github">GitHub</option>
-                <option value="fab fa-gitlab">GitLab</option>
-                <option value="fab fa-google">Google</option>
-                <option value="fab fa-youtube">YouTube</option>
-                <option value="fab fa-twitter">Twitter</option>
-                <option value="fab fa-facebook">Facebook</option>
-                <option value="fab fa-instagram">Instagram</option>
-                <option value="fab fa-linkedin">LinkedIn</option>
-                <option value="fab fa-slack">Slack</option>
-                <option value="fab fa-figma">Figma</option>
-                <option value="fas fa-robot">AI / Bot</option>
-                <option value="fas fa-envelope">Email</option>
-                <option value="fas fa-calendar">Calendar</option>
-                <option value="fas fa-book">Docs</option>
-                <option value="fas fa-code">Code</option>
-                <option value="fas fa-cloud">Cloud</option>
-                <option value="fas fa-shopping-cart">Shopping</option>
-                <option value="fas fa-music">Music</option>
-                <option value="fas fa-video">Video</option>
-                <option value="fas fa-image">Photos</option>
-                <option value="fas fa-chart-bar">Analytics</option>
-                <option value="fas fa-gamepad">Games</option>
-                <option value="fas fa-gem">Gemini</option>
-              </select>
-            </div>
-          </div>
-          <div class="field-group">
-            <label for="link-color">Accent Color</label>
-            <div class="color-row">
-              <input type="color" id="link-color" class="color-picker" value="#c9a96e" />
-              <span class="color-hint">Choose a color for this link's icon</span>
-            </div>
-          </div>
-          <div class="modal-actions">
-            <button type="button" id="cancel-link-btn" class="btn btn-ghost">Cancel</button>
-            <button type="submit" id="save-link-btn" class="btn btn-primary">Add Link</button>
-          </div>
-        </form>
-      </div>
-    </div>
 
-    <!-- ═══ SETTINGS MODAL ═══ -->
-    <div id="settings-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
-      <div class="modal-box">
-        <div class="modal-head">
-          <h2 id="settings-title" class="modal-title">Settings</h2>
-          <button class="icon-btn modal-close" id="close-settings-modal" aria-label="Close">
-            <i class="fas fa-times"></i>
+      </div>
+    </aside>
+
+    <!-- ═══ MAIN CONTENT ═══ -->
+    <main class="main-content" id="main-content">
+
+      <!-- macOS Menubar -->
+      <header class="mac-menubar">
+        <div class="menubar-left">
+          <div class="traffic-lights">
+            <span class="tl tl-red"></span>
+            <span class="tl tl-yellow"></span>
+            <span class="tl tl-green"></span>
+          </div>
+          <button class="mb-btn" id="sidebar-toggle" aria-label="Toggle sidebar" title="Sidebar">
+            <i class="fas fa-sidebar"></i>
+          </button>
+          <span class="mb-app-name">Nova</span>
+        </div>
+
+        <div class="menubar-center">
+          <div class="mb-clock" id="clock">00:00</div>
+          <div class="mb-date" id="date">Loading…</div>
+        </div>
+
+        <div class="menubar-right">
+          <div class="mb-weather" id="weather">
+            <i class="fas fa-sun"></i>
+            <span id="temperature">--°</span>
+          </div>
+          <button class="mb-btn" id="theme-toggle" aria-label="Toggle theme" title="Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="mb-btn" aria-label="Notifications">
+            <i class="fas fa-bell"></i>
           </button>
         </div>
-        <div class="modal-body settings-body">
-          <div class="settings-group">
-            <div class="settings-group-label">Appearance</div>
-            <div class="settings-row">
-              <label>Custom Background</label>
-              <div class="settings-row-controls">
-                <input type="file" id="custom-bg-upload" accept="image/*" class="visually-hidden" />
-                <button id="custom-bg-btn" class="btn btn-ghost btn-sm">Choose Image</button>
-                <button id="reset-bg-btn" class="btn btn-danger btn-sm">Reset</button>
-              </div>
-            </div>
-            <div class="settings-row">
-              <label for="blur-amount">Background Blur</label>
-              <div class="settings-row-controls range-row">
-                <input type="range" id="blur-amount" min="0" max="20" value="5" />
-                <span id="blur-value" class="range-val">5px</span>
-              </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 id="greeting" class="greeting">Good morning</h1>
+          <p id="motivation" class="motivation">What are we accomplishing today?</p>
+        </div>
+      </section>
+
+      <!-- Search -->
+      <section class="search-section">
+        <div class="search-card">
+          <div class="search-engine-selector" style="position:relative">
+            <button id="search-engine-btn" class="engine-toggle" aria-label="Select engine">
+              <i id="search-engine-icon" class="fab fa-google"></i>
+              <i class="fas fa-chevron-down engine-chevron"></i>
+            </button>
+            <div id="search-engine-dropdown" class="engine-dropdown">
+              <button class="engine-option" data-engine="google">
+                <span class="engine-icon-wrap google"><i class="fab fa-google"></i></span>
+                <span>Google</span>
+              </button>
+              <button class="engine-option" data-engine="bing">
+                <span class="engine-icon-wrap bing"><i class="fab fa-microsoft"></i></span>
+                <span>Bing</span>
+              </button>
+              <button class="engine-option" data-engine="duckduckgo">
+                <span class="engine-icon-wrap ddg"><i class="fas fa-shield-alt"></i></span>
+                <span>DuckDuckGo</span>
+              </button>
             </div>
           </div>
-          <div class="settings-group">
-            <div class="settings-group-label">Personalization</div>
-            <div class="settings-row">
-              <label for="user-name">Your Name</label>
-              <input type="text" id="user-name" class="field-input field-sm" placeholder="Enter your name" />
+          <div class="search-divider"></div>
+          <form id="search-form" class="search-form-inner">
+            <input type="text" id="search-input" class="search-input" placeholder="Search or ask AI…" autocomplete="off" aria-label="Search"/>
+            <div class="search-actions">
+              <button type="button" class="search-action-btn" id="voice-btn" title="Voice input">
+                <i class="fas fa-microphone"></i>
+              </button>
+              <button type="submit" class="search-action-btn" id="search-btn" title="Search">
+                <i class="fas fa-magnifying-glass"></i>
+              </button>
+              <button type="button" class="search-action-btn accent-btn" id="send-btn" title="Ask AI">
+                <i class="fas fa-sparkles"></i>
+              </button>
             </div>
-            <div class="settings-row">
-              <label for="weather-location">Weather City</label>
-              <input type="text" id="weather-location" class="field-input field-sm" placeholder="City or ZIP" />
+          </form>
+        </div>
+        <p class="spotlight-hint">Press <kbd>⌘K</kbd> to focus search anytime</p>
+      </section>
+
+      <!-- AI Chat -->
+      <section class="chat-section">
+        <div id="chat-container" class="chat-container">
+          <div class="chat-welcome">
+            <div class="chat-welcome-icon"><i class="fas fa-sparkles"></i></div>
+            <p class="chat-welcome-title">Ask me anything</p>
+            <p class="chat-welcome-sub">Powered by AI — just type and press the ✦ button</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Access -->
+      <section class="quick-access-section">
+        <div class="section-heading">
+          <h2 class="section-title">Quick Access</h2>
+          <button class="add-link-chip" id="add-quick-link-main" aria-label="Add link">
+            <i class="fas fa-plus"></i>
+            <span>Add</span>
+          </button>
+        </div>
+        <div id="quick-links-grid" class="links-grid"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ═══ Dock Site Viewer ═══ -->
+  <div class="dock-viewer" id="dock-viewer">
+    <div class="dock-viewer-bar">
+      <button class="dock-viewer-btn" id="dock-viewer-back" title="Back"><i class="fas fa-chevron-left"></i></button>
+      <button class="dock-viewer-btn" id="dock-viewer-reload" title="Reload"><i class="fas fa-rotate-right"></i></button>
+      <span class="dock-viewer-title" id="dock-viewer-title">—</span>
+      <span class="dock-viewer-url" id="dock-viewer-url"></span>
+      <button class="dock-viewer-btn" id="dock-viewer-popout" title="Open in new tab"><i class="fas fa-arrow-up-right-from-square"></i></button>
+      <button class="dock-viewer-btn danger" id="dock-viewer-close" title="Close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="dock-viewer-placeholder" id="dock-viewer-placeholder">
+      <i class="fas fa-lock"></i>
+      <span>This site can't be embedded due to browser security (X-Frame-Options).</span>
+      <button class="dock-viewer-open-btn" id="dock-viewer-open-new">Open in New Tab ↗</button>
+    </div>
+    <iframe id="dock-iframe" title="Site viewer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+  </div>
+
+  <!-- ═══ macOS Dock ═══ -->
+  <div class="mac-dock" id="mac-dock">
+    <div class="dock-item" data-url="https://chat.openai.com" data-name="ChatGPT" title="ChatGPT">
+      <div class="dock-icon" style="background:linear-gradient(135deg,#10a37f,#1a7f64)">
+        <i class="fas fa-robot"></i>
+      </div>
+      <span class="dock-label">ChatGPT</span>
+      <div class="dock-dot"></div>
+    </div>
+    <div class="dock-item" data-url="https://github.com" data-name="GitHub" title="GitHub">
+      <div class="dock-icon" style="background:linear-gradient(135deg,#24292e,#4a4a4a)">
+        <i class="fab fa-github"></i>
+      </div>
+      <span class="dock-label">GitHub</span>
+      <div class="dock-dot"></div>
+    </div>
+    <div class="dock-item" data-url="https://mail.google.com" data-name="Gmail" title="Gmail">
+      <div class="dock-icon" style="background:linear-gradient(135deg,#ea4335,#c5221f)">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <span class="dock-label">Gmail</span>
+      <div class="dock-dot"></div>
+    </div>
+    <div class="dock-item" data-url="https://youtube.com" data-name="YouTube" title="YouTube">
+      <div class="dock-icon" style="background:linear-gradient(135deg,#ff0000,#cc0000)">
+        <i class="fab fa-youtube"></i>
+      </div>
+      <span class="dock-label">YouTube</span>
+      <div class="dock-dot"></div>
+    </div>
+    <div class="dock-divider"></div>
+    <div class="dock-item" id="dock-settings" title="Settings">
+      <div class="dock-icon" style="background:linear-gradient(135deg,#636366,#3a3a3c)">
+        <i class="fas fa-gear"></i>
+      </div>
+      <span class="dock-label">Settings</span>
+      <div class="dock-dot"></div>
+    </div>
+  </div>
+
+  <!-- ═══ ADD LINK MODAL ═══ -->
+  <div id="add-link-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 id="modal-title" class="modal-title">Add Quick Link</h2>
+        <button class="icon-btn modal-close" id="close-link-modal" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="add-link-form" class="modal-body">
+        <div class="field-group">
+          <label for="link-name">Name</label>
+          <input type="text" id="link-name" class="field-input" placeholder="e.g. GitHub" required />
+        </div>
+        <div class="field-group">
+          <label for="link-url">URL</label>
+          <input type="url" id="link-url" class="field-input" placeholder="https://example.com" required />
+        </div>
+        <div class="field-group">
+          <label for="icon-select">Icon</label>
+          <div class="icon-select-row">
+            <div id="icon-preview" class="icon-preview-box"><i class="fas fa-link"></i></div>
+            <select id="icon-select" class="field-input icon-select">
+              <option value="fas fa-link">General Link</option>
+              <option value="fas fa-globe">Website</option>
+              <option value="fas fa-star">Favorite</option>
+              <option value="fas fa-folder">Folder</option>
+              <option value="fab fa-github">GitHub</option>
+              <option value="fab fa-gitlab">GitLab</option>
+              <option value="fab fa-google">Google</option>
+              <option value="fab fa-youtube">YouTube</option>
+              <option value="fab fa-twitter">Twitter</option>
+              <option value="fab fa-facebook">Facebook</option>
+              <option value="fab fa-instagram">Instagram</option>
+              <option value="fab fa-linkedin">LinkedIn</option>
+              <option value="fab fa-slack">Slack</option>
+              <option value="fab fa-figma">Figma</option>
+              <option value="fas fa-robot">AI / Bot</option>
+              <option value="fas fa-envelope">Email</option>
+              <option value="fas fa-calendar">Calendar</option>
+              <option value="fas fa-book">Docs</option>
+              <option value="fas fa-code">Code</option>
+              <option value="fas fa-cloud">Cloud</option>
+              <option value="fas fa-shopping-cart">Shopping</option>
+              <option value="fas fa-music">Music</option>
+              <option value="fas fa-video">Video</option>
+              <option value="fas fa-image">Photos</option>
+              <option value="fas fa-chart-bar">Analytics</option>
+              <option value="fas fa-gamepad">Games</option>
+              <option value="fas fa-gem">Gemini</option>
+              <option value="fas fa-sparkles">Sparkles</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label for="link-color">Icon Color</label>
+          <div class="color-row">
+            <input type="color" id="link-color" class="color-picker" value="#007aff" />
+            <span class="color-hint">Choose a color for this link's icon</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="cancel-link-btn" class="btn btn-ghost">Cancel</button>
+          <button type="submit" id="save-link-btn" class="btn btn-primary">Add Link</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══ SETTINGS MODAL ═══ -->
+  <div id="settings-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 class="modal-title">Settings</h2>
+        <button class="icon-btn modal-close" id="close-settings-modal" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body settings-body">
+        <div class="settings-group">
+          <div class="settings-group-label">Appearance</div>
+          <div class="settings-row">
+            <label>Custom Background</label>
+            <div class="settings-row-controls">
+              <input type="file" id="custom-bg-upload" accept="image/*" class="visually-hidden" />
+              <button id="custom-bg-btn" class="btn btn-ghost btn-sm">Choose Image</button>
+              <button id="reset-bg-btn" class="btn btn-danger btn-sm">Reset</button>
+            </div>
+          </div>
+          <div class="settings-row">
+            <label for="blur-amount">Background Blur</label>
+            <div class="settings-row-controls range-row">
+              <input type="range" id="blur-amount" min="0" max="20" value="0" />
+              <span id="blur-value" class="range-val">0px</span>
+            </div>
+          </div>
+          <div class="settings-row">
+            <label for="dim-amount">Background Dim</label>
+            <div class="settings-row-controls range-row">
+              <input type="range" id="dim-amount" min="0" max="65" value="18" />
+              <span id="dim-value" class="range-val">18%</span>
+            </div>
+          </div>
+          <div class="settings-row settings-row-stack">
+            <label>Glass Style</label>
+            <div class="settings-row-controls settings-stack-controls">
+              <div class="glass-presets" id="glass-presets">
+                <button type="button" class="glass-preset" data-preset="soft">Soft</button>
+                <button type="button" class="glass-preset" data-preset="balanced">Balanced</button>
+                <button type="button" class="glass-preset" data-preset="frosted">Frosted</button>
+                <button type="button" class="glass-preset" data-preset="crystal">Crystal</button>
+              </div>
+              <div class="glass-preview-card" id="glass-preview-card" aria-hidden="true">
+                <div class="glass-preview-orb"></div>
+                <div class="glass-preview-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="glass-preview-sheen"></div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="modal-actions modal-footer-actions">
-          <button id="reset-settings-btn" class="btn btn-danger">Reset All</button>
-          <button id="save-settings-btn" class="btn btn-primary">Save</button>
+        <div class="settings-group">
+          <div class="settings-group-label">Personalization</div>
+          <div class="settings-row">
+            <label for="user-name">Your Name</label>
+            <input type="text" id="user-name" class="field-input field-sm" placeholder="Enter your name" />
+          </div>
+          <div class="settings-row">
+            <label for="weather-location">Weather City</label>
+            <input type="text" id="weather-location" class="field-input field-sm" placeholder="City or ZIP" />
+          </div>
         </div>
       </div>
+      <div class="modal-actions modal-footer-actions">
+        <button id="reset-settings-btn" class="btn btn-danger">Reset All</button>
+        <button id="save-settings-btn" class="btn btn-primary">Save</button>
+      </div>
     </div>
+  </div>
 
-    <script src="/scripts.js"></script>
-  </body>
+  <script src="scripts.js"></script>
+</body>
 </html>
